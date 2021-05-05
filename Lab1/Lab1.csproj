@@ -179,6 +179,7 @@
       <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\NewModel.cs" />
     <Compile Include="Models\NewStudent.cs" />
     <Compile Include="Models\Security\ChangePassword.cs" />
     <Compile Include="Models\Security\ChangeProfile.cs" />
@@ -231,7 +232,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HelloWorld\Index.cshtml" />
-    <Content Include="Views\HelloWorld\Welcome.cshtml" />
+    <Content Include="Views\HelloWorld\Admin.cshtml" />
     <Content Include="Views\Rooms\Create.cshtml" />
     <Content Include="Views\Rooms\Delete.cshtml" />
     <Content Include="Views\Rooms\Details.cshtml" />
@@ -263,6 +264,9 @@
     <Content Include="Views\NewStudents\Details.cshtml" />
     <Content Include="Views\NewStudents\Edit.cshtml" />
     <Content Include="Views\NewStudents\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\AdminPanel.cshtml" />
+    <Content Include="Views\Account\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

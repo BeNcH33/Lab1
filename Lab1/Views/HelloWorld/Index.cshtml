@@ -1,9 +1,29 @@
 ﻿@{
     ViewBag.Title = "Добро пожаловать на сайт общежития Ми ВлГУ";
 }
-<h2>Общежитие Ми ВлГУ</h2>
+<h2>Панель администратора</h2>
 <ul>
+    <body>
 
+        <div>
+            <li>@Html.ActionLink("Помещения", "Index", "Rooms")</li>
+        </div>
+        <div>
+            <li>@Html.ActionLink("Студенты", "Index", "NewStudents")</li>
+        </div>
+        <div>
+            <li>@Html.ActionLink("Жилые комнаты", "Index", "Contracts")</li>
+        </div>
+        <div>
+            <li>@Html.ActionLink("Контракты", "Index", "LeaveRooms")</li>
+        </div>
+        <div>
+            <li>@Html.ActionLink("Нарушевшие", "Index", "Violations")</li>
+        </div>
+        <div>
+            <li>@Html.ActionLink("Нарушения", "Index", "ViolationContents")</li>
+        </div>
+    </body>
 </ul>
 
 
