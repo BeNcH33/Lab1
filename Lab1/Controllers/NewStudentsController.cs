@@ -10,107 +10,107 @@ using Lab1.Models;
 
 namespace Lab1.Controllers
 {
-    public class StudentsController : Controller
+    public class NewStudentsController : Controller
     {
         private StudentDBContext db = new StudentDBContext();
 
-        // GET: Students
+        // GET: NewStudents
         public ActionResult Index()
         {
-            return View(db.Rooms.ToList());
+            return View(db.Students.ToList());
         }
 
-        // GET: Students/Details/5
+        // GET: NewStudents/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Rooms.Find(id);
-            if (student == null)
+            NewStudent newStudent = db.Students.Find(id);
+            if (newStudent == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(newStudent);
         }
 
-        // GET: Students/Create
+        // GET: NewStudents/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Students/Create
+        // POST: NewStudents/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Surname,Otch,PasportSer,PasportNumber,ZachetNumber,Sex,Birthday,Town")] Student student)
+        public ActionResult Create([Bind(Include = "ID,Name,Surname,Otch,PasportSer,PasportNumber,ZachetNumber,Sex,Birthday,Town")] NewStudent newStudent)
         {
             if (ModelState.IsValid)
             {
-                db.Rooms.Add(student);
+                db.Students.Add(newStudent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(student);
+            return View(newStudent);
         }
 
-        // GET: Students/Edit/5
+        // GET: NewStudents/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Rooms.Find(id);
-            if (student == null)
+            NewStudent newStudent = db.Students.Find(id);
+            if (newStudent == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(newStudent);
         }
 
-        // POST: Students/Edit/5
+        // POST: NewStudents/Edit/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Surname,Otch,PasportSer,PasportNumber,ZachetNumber,Sex,Birthday,Town")] Student student)
+        public ActionResult Edit([Bind(Include = "ID,Name,Surname,Otch,PasportSer,PasportNumber,ZachetNumber,Sex,Birthday,Town")] NewStudent newStudent)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
+                db.Entry(newStudent).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(student);
+            return View(newStudent);
         }
 
-        // GET: Students/Delete/5
+        // GET: NewStudents/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Rooms.Find(id);
-            if (student == null)
+            NewStudent newStudent = db.Students.Find(id);
+            if (newStudent == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(newStudent);
         }
 
-        // POST: Students/Delete/5
+        // POST: NewStudents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Rooms.Find(id);
-            db.Rooms.Remove(student);
+            NewStudent newStudent = db.Students.Find(id);
+            db.Students.Remove(newStudent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

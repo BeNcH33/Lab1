@@ -51,7 +51,34 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -126,12 +153,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContractsController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveRoomsController.cs" />
+    <Compile Include="Controllers\NewStudentsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
-    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\ViolationContentsController.cs" />
     <Compile Include="Controllers\ViolationsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,11 +174,22 @@
     <Compile Include="Migrations\202103120619154_Migration1.Designer.cs">
       <DependentUpon>202103120619154_Migration1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105042223420_MigrateDB.cs" />
+    <Compile Include="Migrations\202105042223420_MigrateDB.Designer.cs">
+      <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\NewStudent.cs" />
+    <Compile Include="Models\Security\ChangePassword.cs" />
+    <Compile Include="Models\Security\ChangeProfile.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\LeaveRooms.cs" />
+    <Compile Include="Models\Security\Login.cs" />
+    <Compile Include="Models\Security\Register.cs" />
     <Compile Include="Models\Rooms.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Security\MyIdentityDbContext.cs" />
+    <Compile Include="Models\Security\MyIdentityRole.cs" />
+    <Compile Include="Models\Security\MyIdentityUser.cs" />
     <Compile Include="Models\Violation.cs" />
     <Compile Include="Models\ViolationContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -197,11 +237,6 @@
     <Content Include="Views\Rooms\Details.cshtml" />
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
-    <Content Include="Views\Students\Create.cshtml" />
-    <Content Include="Views\Students\Delete.cshtml" />
-    <Content Include="Views\Students\Details.cshtml" />
-    <Content Include="Views\Students\Edit.cshtml" />
-    <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\LeaveRooms\Create.cshtml" />
     <Content Include="Views\LeaveRooms\Delete.cshtml" />
     <Content Include="Views\LeaveRooms\Details.cshtml" />
@@ -222,6 +257,12 @@
     <Content Include="Views\ViolationContents\Details.cshtml" />
     <Content Include="Views\ViolationContents\Edit.cshtml" />
     <Content Include="Views\ViolationContents\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\NewStudents\Create.cshtml" />
+    <Content Include="Views\NewStudents\Delete.cshtml" />
+    <Content Include="Views\NewStudents\Details.cshtml" />
+    <Content Include="Views\NewStudents\Edit.cshtml" />
+    <Content Include="Views\NewStudents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103120619154_Migration1.resx">
       <DependentUpon>202103120619154_Migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105042223420_MigrateDB.resx">
+      <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

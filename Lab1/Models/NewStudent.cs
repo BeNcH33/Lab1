@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace Lab1.Models
 {
-    public class Student
+    public class NewStudent
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -16,11 +17,12 @@ namespace Lab1.Models
         public int PasportNumber { get; set; }
         public int ZachetNumber { get; set; }
         public string Sex { get; set; }
-        public int Birthday { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Birthday { get; set; }
         public string Town { get; set; }
     }
     public class StudentDBContext : DbContext
     {
-        public DbSet<Student> Rooms { get; set; }
+        public DbSet<NewStudent> Students { get; set; }
     }
 }
