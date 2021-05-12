@@ -13,8 +13,4 @@ namespace Lab1.Models
         public int NumberFloor { get; set; }
         public int Count { get; set; }
     }
-    public class LeaveRoomsDBContext : DbContext
-    {
-        public DbSet<LeaveRooms> Rooms { get; set; }
-    }
 }

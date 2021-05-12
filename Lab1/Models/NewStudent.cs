@@ -21,8 +21,4 @@ namespace Lab1.Models
         public DateTime Birthday { get; set; }
         public string Town { get; set; }
     }
-    public class StudentDBContext : DbContext
-    {
-        public DbSet<NewStudent> Students { get; set; }
-    }
 }

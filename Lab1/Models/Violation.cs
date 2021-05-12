@@ -15,10 +15,4 @@ namespace Lab1.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
     }
-    public class ViolationDBContext : DbContext
-    {
-        public DbSet<Violation> Violations { get; set; }
-
-        public System.Data.Entity.DbSet<Lab1.Models.ViolationContent> ViolationContents { get; set; }
-    }
 }

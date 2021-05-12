@@ -12,7 +12,7 @@ namespace Lab1.Controllers
 {
     public class ContractsController : Controller
     {
-        private ContractDBContext db = new ContractDBContext();
+        private RoomsDBContext db = new RoomsDBContext();
 
         // GET: Contracts
         public ActionResult Index()

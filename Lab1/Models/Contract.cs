@@ -19,8 +19,4 @@ namespace Lab1.Models
         public int Cost { get; set; }
 
     }
-    public class ContractDBContext : DbContext
-    {
-        public DbSet<Contract> Contracts { get; set; }
-    }
 }

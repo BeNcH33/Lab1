@@ -28,6 +28,17 @@ namespace Lab1.Controllers
         {
             return View();
         }
+        [Authorize (Roles="Administrator")]
+        public ActionResult AdminPanel()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Student")]
+        public ActionResult StudentPanel()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(Register model)
@@ -43,8 +54,9 @@ namespace Lab1.Controllers
                 IdentityResult result = userManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    userManager.AddToRole(user.Id, "Administrator");
+                    userManager.AddToRole(user.Id, "Operator");
                     return RedirectToAction("Login", "Account");
+                    
                 }
                 else
                 {

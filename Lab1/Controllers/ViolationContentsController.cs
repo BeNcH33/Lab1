@@ -12,7 +12,7 @@ namespace Lab1.Controllers
 {
     public class ViolationContentsController : Controller
     {
-        private ViolationDBContext db = new ViolationDBContext();
+        private RoomsDBContext db = new RoomsDBContext();
 
         // GET: ViolationContents
         public ActionResult Index()

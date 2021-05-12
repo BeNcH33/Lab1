@@ -12,12 +12,12 @@ namespace Lab1.Controllers
 {
     public class NewStudentsController : Controller
     {
-        private StudentDBContext db = new StudentDBContext();
+        private RoomsDBContext db = new RoomsDBContext();
 
         // GET: NewStudents
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            return View(db.NewStudents.ToList());
         }
 
         // GET: NewStudents/Details/5
@@ -27,7 +27,7 @@ namespace Lab1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewStudent newStudent = db.Students.Find(id);
+            NewStudent newStudent = db.NewStudents.Find(id);
             if (newStudent == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace Lab1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(newStudent);
+                db.NewStudents.Add(newStudent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace Lab1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewStudent newStudent = db.Students.Find(id);
+            NewStudent newStudent = db.NewStudents.Find(id);
             if (newStudent == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace Lab1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewStudent newStudent = db.Students.Find(id);
+            NewStudent newStudent = db.NewStudents.Find(id);
             if (newStudent == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace Lab1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NewStudent newStudent = db.Students.Find(id);
-            db.Students.Remove(newStudent);
+            NewStudent newStudent = db.NewStudents.Find(id);
+            db.NewStudents.Remove(newStudent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

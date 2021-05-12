@@ -156,9 +156,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContractsController.cs" />
-    <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LeaveRoomsController.cs" />
     <Compile Include="Controllers\NewStudentsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\ViolationContentsController.cs" />
@@ -178,8 +176,11 @@
     <Compile Include="Migrations\202105042223420_MigrateDB.Designer.cs">
       <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105120945396_NewMigrate.cs" />
+    <Compile Include="Migrations\202105120945396_NewMigrate.Designer.cs">
+      <DependentUpon>202105120945396_NewMigrate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\NewModel.cs" />
     <Compile Include="Models\NewStudent.cs" />
     <Compile Include="Models\Security\ChangePassword.cs" />
     <Compile Include="Models\Security\ChangeProfile.cs" />
@@ -293,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105042223420_MigrateDB.resx">
       <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105120945396_NewMigrate.resx">
+      <DependentUpon>202105120945396_NewMigrate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
