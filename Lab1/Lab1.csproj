@@ -268,6 +268,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\AdminPanel.cshtml" />
     <Content Include="Views\Account\View.cshtml" />
+    <Content Include="Views\Account\OperatorPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
