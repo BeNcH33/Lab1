@@ -34,7 +34,7 @@ namespace Lab1.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Student")]
+        [Authorize(Roles = "Student, Administrator")]
         public ActionResult StudentPanel()
         {
             return View();
@@ -54,7 +54,7 @@ namespace Lab1.Controllers
                 IdentityResult result = userManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    userManager.AddToRole(user.Id, "Operator");
+                    userManager.AddToRole(user.Id, "Student");
                     return RedirectToAction("Login", "Account");
                     
                 }

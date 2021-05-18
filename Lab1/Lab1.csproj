@@ -180,6 +180,10 @@
     <Compile Include="Migrations\202105120945396_NewMigrate.Designer.cs">
       <DependentUpon>202105120945396_NewMigrate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105171017197_MigrateDB2.cs" />
+    <Compile Include="Migrations\202105171017197_MigrateDB2.Designer.cs">
+      <DependentUpon>202105171017197_MigrateDB2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\NewStudent.cs" />
     <Compile Include="Models\Security\ChangePassword.cs" />
@@ -269,6 +273,7 @@
     <Content Include="Views\Account\AdminPanel.cshtml" />
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Account\OperatorPage.cshtml" />
+    <Content Include="Views\Account\StudentPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105120945396_NewMigrate.resx">
       <DependentUpon>202105120945396_NewMigrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105171017197_MigrateDB2.resx">
+      <DependentUpon>202105171017197_MigrateDB2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

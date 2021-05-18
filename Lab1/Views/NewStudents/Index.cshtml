@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<Lab1.Models.NewStudent>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -11,9 +7,11 @@
     <meta name="viewport" content="width=device-width" />
     <title>Таблица студентов</title>
 </head>
+
+<h2>Таблица студентов</h2>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую", "Create")
     </p>
     <table class="table">
         <tr>
@@ -78,9 +76,9 @@
                     @Html.DisplayFor(modelItem => item.Town)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Подробно", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.ID })
                 </td>
             </tr>
         }
