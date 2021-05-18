@@ -1,15 +1,11 @@
 ﻿@model IEnumerable<Lab1.Models.ViolationContent>
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
 </head>
 <body>
     <p>
@@ -41,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Penalties)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Подробно", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
             </td>
         </tr>
     }

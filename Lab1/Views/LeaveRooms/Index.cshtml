@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<Lab1.Models.LeaveRooms>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +31,9 @@
             @Html.DisplayFor(modelItem => item.Count)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

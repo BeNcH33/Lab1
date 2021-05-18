@@ -34,7 +34,7 @@ namespace Lab1.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Student, Administrator")]
+        [Authorize(Roles = "Student, Administrator, Operator")]
         public ActionResult StudentPanel()
         {
             return View();
@@ -174,10 +174,9 @@ namespace Lab1.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult LogOut()
+        public ActionResult LogOutz()
         {
-            IAuthenticationManager authenticationManager =
-           HttpContext.GetOwinContext().Authentication;
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.SignOut();
             return RedirectToAction("Login", "Account");
         }

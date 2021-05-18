@@ -23,13 +23,18 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                     <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Войти", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Панель администрирования", "AdminPanel", "Account")</li>
-                    <li>@Html.ActionLink("Для студентов", "StudentPanel", "Account")</li>
 
+                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li>@Html.ActionLink("Панель администрирования", "AdminPanel", "Account")</li>
+                    }
+                    @if (User.IsInRole("Student"))
+                    {
+                        <li>@Html.ActionLink("Для студентов", "StudentPanel", "Account")</li>
+                    }
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

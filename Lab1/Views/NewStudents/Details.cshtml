@@ -1,19 +1,17 @@
 ﻿@model Lab1.Models.NewStudent
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Подробно</title>
 </head>
 <body>
     <div>
-        <h4>NewStudent</h4>
+        <h4>Новый студент</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -91,8 +89,8 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Изменить", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Вернуться назад", "Index")
     </p>
 </body>
 </html>

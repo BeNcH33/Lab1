@@ -1,13 +1,11 @@
 ﻿@model Lab1.Models.Rooms
 
-@{
-    ViewBag.Title = "Details";
-}
 
-<h2>Details</h2>
+
+<h2>Подробно</h2>
 
 <div>
-    <h4>Rooms</h4>
+    <h4>Комнаты</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +27,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Вернуться назад", "Index")
 </p>

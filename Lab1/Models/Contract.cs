@@ -10,6 +10,7 @@ namespace Lab1.Models
     public class Contract
     {
         public int ID { get; set; }
+        //[Display(Name = "Пароль")]
         public int number { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateIn { get; set; }

@@ -1,15 +1,12 @@
 ﻿@model Lab1.Models.ViolationContent
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Создать</title>
 </head>
 <body>
     @using (Html.BeginForm()) 
@@ -46,14 +43,14 @@
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Создать" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Вернуться назад", "Index")
     </div>
 </body>
 </html>

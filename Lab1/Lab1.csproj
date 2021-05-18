@@ -271,9 +271,9 @@
     <Content Include="Views\NewStudents\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\AdminPanel.cshtml" />
-    <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Account\OperatorPage.cshtml" />
     <Content Include="Views\Account\StudentPanel.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
