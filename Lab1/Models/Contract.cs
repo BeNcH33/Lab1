@@ -10,13 +10,16 @@ namespace Lab1.Models
     public class Contract
     {
         public int ID { get; set; }
-        //[Display(Name = "Пароль")]
+        [Display(Name = "Номер")]
         public int number { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Дата въезда")]
         public DateTime DateIn { get; set; }
 
         [DataType(DataType.Date)]
+        [Display(Name = "Дата выезда")]
         public DateTime DateOut { get; set; }
+        [Display(Name = "Стоимость")]
         public int Cost { get; set; }
 
     }

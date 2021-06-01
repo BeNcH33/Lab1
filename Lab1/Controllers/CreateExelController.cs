@@ -29,8 +29,8 @@ namespace Lab1.Controllers
             {
                 //устанавливаем поля документа
                 excelPackage.Workbook.Properties.Author = "Моржаков В.С.";
-                excelPackage.Workbook.Properties.Title = "Список пользователей системы";
-                excelPackage.Workbook.Properties.Subject = "Пользователи системы";
+                excelPackage.Workbook.Properties.Title = "Список студентов в системе";
+                excelPackage.Workbook.Properties.Subject = "Студенты системы";
                 excelPackage.Workbook.Properties.Created = DateTime.Now;
 
                 //плучаем лист по имени.
@@ -53,6 +53,32 @@ namespace Lab1.Controllers
                     worksheet.Cells[startLine, 10].Value = item.Town;
                     startLine++;
                 }
+
+
+                worksheet = excelPackage.Workbook.Worksheets["Лист2"];
+                int startLine2 = 3;
+                
+                foreach (var item in db.Contracts.ToList())
+                {
+                    worksheet.Cells[startLine2, 1].Value = startLine2 - 2;
+                    worksheet.Cells[startLine2, 2].Value = item.number;
+                    worksheet.Cells[startLine2, 3].Value = item.DateIn;
+                    worksheet.Cells[startLine2, 4].Value = item.DateOut;
+                    worksheet.Cells[startLine2, 5].Value = item.Cost;
+                    startLine2++;
+                }
+
+                worksheet = excelPackage.Workbook.Worksheets["Лист3"];
+                int startLine3 = 3;
+
+                foreach (var item in db.Violations.ToList())
+                {
+                    worksheet.Cells[startLine3, 1].Value = startLine2 - 2;
+                    worksheet.Cells[startLine3, 2].Value = item.category;
+                    worksheet.Cells[startLine3, 3].Value = item.Date;
+                    startLine3++;
+                }
+
 
 
                 //созраняем в новое место

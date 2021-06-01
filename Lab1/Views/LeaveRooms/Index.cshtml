@@ -1,41 +1,50 @@
 ﻿@model IEnumerable<Lab1.Models.LeaveRooms>
 
 
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Создать", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberRoom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberFloor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Count)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberRoom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberFloor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Count)
-        </td>
-        <td>
-            @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Подробно", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Главная</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Добавить запись", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberFloor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberRoom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberFloor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Подробно", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

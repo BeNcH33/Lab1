@@ -170,6 +170,7 @@
     <Compile Include="Controllers\ContractsController.cs" />
     <Compile Include="Controllers\CreateExelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeaveRoomsController.cs" />
     <Compile Include="Controllers\NewStudentsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\ViolationContentsController.cs" />
@@ -196,6 +197,10 @@
     <Compile Include="Migrations\202105171017197_MigrateDB2.cs" />
     <Compile Include="Migrations\202105171017197_MigrateDB2.Designer.cs">
       <DependentUpon>202105171017197_MigrateDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011656223_LastMigration.cs" />
+    <Compile Include="Migrations\202106011656223_LastMigration.Designer.cs">
+      <DependentUpon>202106011656223_LastMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\NewStudent.cs" />
@@ -321,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105171017197_MigrateDB2.resx">
       <DependentUpon>202105171017197_MigrateDB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011656223_LastMigration.resx">
+      <DependentUpon>202106011656223_LastMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
