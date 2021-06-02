@@ -20,6 +20,14 @@ namespace Lab1.Controllers
             return View(db.LeaveRooms.ToList());
         }
 
+        public ActionResult GetRoom(int IDStudent)
+        {
+            ViewBag.idstudent = IDStudent;
+            return View(db.LeaveRooms.ToList());
+            
+
+        }
+
         // GET: LeaveRooms/Details/5
         public ActionResult Details(int? id)
         {

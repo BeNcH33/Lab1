@@ -20,6 +20,7 @@ namespace Lab1.Controllers
             return View(db.Contracts.ToList());
         }
 
+
         // GET: Contracts/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,8 +37,10 @@ namespace Lab1.Controllers
         }
 
         // GET: Contracts/Create
-        public ActionResult Create()
+        public ActionResult Create(int IDStudent , int IDRoom)
         {
+            ViewBag.idstudent = IDStudent;
+            ViewBag.idRoom = IDRoom;
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace Lab1.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,number,DateIn,DateOut,Cost")] Contract contract)
+        public ActionResult Create([Bind(Include = "ID,number,NewStudentID,NewRoomID,DateIn,DateOut,Cost")] Contract contract)
         {
             if (ModelState.IsValid)
             {

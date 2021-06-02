@@ -12,6 +12,11 @@ namespace Lab1.Models
         public int ID { get; set; }
         [Display(Name = "Номер")]
         public int number { get; set; }
+        [Display(Name = "Идентификатор студента")]
+        public int NewStudentID { get; set; }
+        [Display(Name = "Идентификатор комнаты")]
+        public int NewRoomID { get; set; }
+
         [DataType(DataType.Date)]
         [Display(Name = "Дата въезда")]
         public DateTime DateIn { get; set; }

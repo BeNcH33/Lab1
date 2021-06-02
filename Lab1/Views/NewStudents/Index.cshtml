@@ -79,6 +79,7 @@
                     @Html.ActionLink("Редактировать", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Подробно", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Удалить", "Delete", new { id = item.ID })
+                    @Html.RouteLink("Оформить контракт", new { controller = "LeaveRooms", action = "GetRoom", IDStudent=item.ID })
                 </td>
             </tr>
         }

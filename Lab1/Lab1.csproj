@@ -178,31 +178,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102260642013_InitialCreate.cs" />
-    <Compile Include="Migrations\202102260642013_InitialCreate.Designer.cs">
-      <DependentUpon>202102260642013_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103120619154_Migration1.cs" />
-    <Compile Include="Migrations\202103120619154_Migration1.Designer.cs">
-      <DependentUpon>202103120619154_Migration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105042223420_MigrateDB.cs" />
-    <Compile Include="Migrations\202105042223420_MigrateDB.Designer.cs">
-      <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105120945396_NewMigrate.cs" />
-    <Compile Include="Migrations\202105120945396_NewMigrate.Designer.cs">
-      <DependentUpon>202105120945396_NewMigrate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105171017197_MigrateDB2.cs" />
-    <Compile Include="Migrations\202105171017197_MigrateDB2.Designer.cs">
-      <DependentUpon>202105171017197_MigrateDB2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106011656223_LastMigration.cs" />
-    <Compile Include="Migrations\202106011656223_LastMigration.Designer.cs">
-      <DependentUpon>202106011656223_LastMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\NewStudent.cs" />
     <Compile Include="Models\Security\ChangePassword.cs" />
     <Compile Include="Models\Security\ChangeProfile.cs" />
@@ -292,6 +267,7 @@
     <Content Include="Views\Account\OperatorPage.cshtml" />
     <Content Include="Views\Account\StudentPanel.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\LeaveRooms\GetRoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,26 +286,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102260642013_InitialCreate.resx">
-      <DependentUpon>202102260642013_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103120619154_Migration1.resx">
-      <DependentUpon>202103120619154_Migration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105042223420_MigrateDB.resx">
-      <DependentUpon>202105042223420_MigrateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105120945396_NewMigrate.resx">
-      <DependentUpon>202105120945396_NewMigrate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105171017197_MigrateDB2.resx">
-      <DependentUpon>202105171017197_MigrateDB2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106011656223_LastMigration.resx">
-      <DependentUpon>202106011656223_LastMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
