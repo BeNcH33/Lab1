@@ -36,8 +36,10 @@ namespace Lab1.Controllers
         }
 
         // GET: Violations/Create
-        public ActionResult Create()
+        public ActionResult Create(int idStudent, int idViolation)
         {
+            ViewBag.idStudent = idStudent;
+            ViewBag.idViolation = idViolation;
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace Lab1.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,category,Date")] Violation violation)
+        public ActionResult Create([Bind(Include = "ID,category,Date,IdStudent,IdViolation")] Violation violation)
         {
             if (ModelState.IsValid)
             {

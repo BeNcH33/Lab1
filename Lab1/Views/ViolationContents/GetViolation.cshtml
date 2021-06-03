@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lab1.Models.ViolationContent>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Добавить запись", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Penalties)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Penalties)
+                </td>
+                <td>
+                    @Html.RouteLink("Продолжить", new { controller = "Violations", action = "Create", idStudent = ViewBag.idStudent, idViolation = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+

@@ -7,50 +7,64 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Подробно</title>
 </head>
 <body>
     <div>
-        <h4>Contract</h4>
+        <h4>Контракт</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.number)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.number)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.DateIn)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.DateIn)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.DateOut)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.DateOut)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Cost)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Cost)
             </dd>
-    
+            <dt>
+                @Html.DisplayNameFor(model => model.NewStudentID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewStudentID)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NewRoomID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewRoomID)
+            </dd>
+
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Изменить", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Вернуться назад", "Index")
     </p>
 </body>
 </html>

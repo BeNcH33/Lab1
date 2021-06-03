@@ -20,6 +20,12 @@ namespace Lab1.Controllers
             return View(db.ViolationContents.ToList());
         }
 
+        public ActionResult GetViolation(int idStudent)
+        {
+            ViewBag.idStudent = idStudent;
+            return View(db.ViolationContents.ToList());
+        }
+
         // GET: ViolationContents/Details/5
         public ActionResult Details(int? id)
         {

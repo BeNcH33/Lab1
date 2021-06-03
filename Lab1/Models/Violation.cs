@@ -10,11 +10,12 @@ namespace Lab1.Models
     public class Violation
     {
         public int ID { get; set; }
-        [Display(Name = "Название нарушения")]
-        public string category { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Дата совершения")]
         public DateTime Date { get; set; }
+        [Display(Name = "Идентификатор студента")]
         public int IdStudent { get; set; }
+        [Display(Name = "Идентификатор нарушения")]
+        public int IdViolation { get; set; }
     }
 }

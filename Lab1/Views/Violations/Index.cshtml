@@ -9,34 +9,39 @@
     
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Создать новую запись", "Create")
-    </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.category)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                @Html.DisplayNameFor(model => model.IdStudent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdViolation)
             </th>
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Подробно", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
-            </td>
-        </tr>
+    <tr>
+        <td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdStudent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdViolation)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Подробно", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.ID })
+        </td>
+    </tr>
     }
     
     </table>

@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -74,15 +76,42 @@ namespace Lab1.Controllers
                 foreach (var item in db.Violations.ToList())
                 {
                     worksheet.Cells[startLine3, 1].Value = startLine2 - 2;
-                    worksheet.Cells[startLine3, 2].Value = item.category;
-                    worksheet.Cells[startLine3, 3].Value = item.Date;
+                    
+                    worksheet.Cells[startLine3, 2].Value = item.Date;
                     startLine3++;
                 }
 
 
 
+
+
+
                 //созраняем в новое место
                 excelPackage.SaveAs(fi_report);
+
+                // Тип файла - content-type
+                // Имя файла - необязательно
+                // return File(file_path, file_type, file_name);
+
+                MailAddress from = new MailAddress("slava.morzhakov@mail.ru", "Отчёт о работе");
+                // кому отправляем
+                MailAddress to = new MailAddress("eptsep@mail.ru");
+                // создаем объект сообщения
+                MailMessage m = new MailMessage(from, to);
+                // тема письма
+                m.Subject = "Задание";
+                // текст письма
+                m.Body = "Отчет";
+                // письмо представляет код html
+                m.IsBodyHtml = true;
+                // адрес smtp-сервера и порт, с которого будем отправлять письмо
+                SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
+                // логин и пароль
+                smtp.Credentials = new NetworkCredential("slava.morzhakov@mail.ru", "25J7nMcp");
+                smtp.EnableSsl = true;
+                m.Attachments.Add(new Attachment(file_path));
+                smtp.Send(m);
+                return base.File(file_path, "application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet", "report.xlsx");
             }
             // Тип файла - content-type
             string file_type = "application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet";
