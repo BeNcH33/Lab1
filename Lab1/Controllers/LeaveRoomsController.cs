@@ -54,7 +54,7 @@ namespace Lab1.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NumberRoom,NumberFloor,Count")] LeaveRooms leaveRooms)
+        public ActionResult Create([Bind(Include = "ID,NumberRoom,NumberFloor,Count,Chear")] LeaveRooms leaveRooms)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Lab1.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NumberRoom,NumberFloor,Count")] LeaveRooms leaveRooms)
+        public ActionResult Edit([Bind(Include = "ID,NumberRoom,NumberFloor,Count,Chear")] LeaveRooms leaveRooms)
         {
             if (ModelState.IsValid)
             {

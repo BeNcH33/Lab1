@@ -16,5 +16,7 @@ namespace Lab1.Models
         public int NumberFloor { get; set; }
         [Display(Name = "Количество мест")]
         public int Count { get; set; }
+        [Display(Name = "Мебель в комнате")]
+        public string Chear { get; set; }
     }
 }

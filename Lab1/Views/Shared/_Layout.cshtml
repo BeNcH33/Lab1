@@ -29,10 +29,10 @@
                     {
                         <li>@Html.ActionLink("Панель администрирования", "AdminPanel", "Account")</li>
                     }
-                    @if (User.IsInRole("Student"))
+                    @*@if (User.IsInRole("Student"))
                     {
                         <li>@Html.ActionLink("Для студентов", "StudentPanel", "Account")</li>
-                    }
+                    }*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
