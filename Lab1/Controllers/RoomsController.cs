@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using Lab1.Models;
 
 namespace Lab1.Controllers
@@ -122,6 +123,35 @@ namespace Lab1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult LoadFromAPI()
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:5001/Room");
+            request.Accept = "application/xml";
+            WebResponse response = request.GetResponse();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(response.GetResponseStream());
+            XmlElement root = doc.DocumentElement;
+            foreach (XmlElement RoomsNode in root)
+            {
+                int id = Convert.ToInt32(RoomsNode["ID"].InnerText);
+                Rooms rooms = db.Rooms.Find(id);
+                if (rooms == null)
+                {
+                    Rooms newRooms = new Rooms()
+                    {
+                        floor = Convert.ToInt32(RoomsNode["floor"].InnerText),
+                        NameRoom = RoomsNode["NameRoom"].InnerText,
+                        NumberRoom = Convert.ToInt32(RoomsNode["NumberRoom"].InnerText),
+                        
+                    };
+                    db.Rooms.Add(newRooms);
+                }
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

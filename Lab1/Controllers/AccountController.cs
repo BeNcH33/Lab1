@@ -54,7 +54,7 @@ namespace Lab1.Controllers
                 IdentityResult result = userManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    userManager.AddToRole(user.Id, "Student");
+                    userManager.AddToRole(user.Id, "Administrator");
                     return RedirectToAction("Login", "Account");
                     
                 }
