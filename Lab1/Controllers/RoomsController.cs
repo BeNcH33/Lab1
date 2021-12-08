@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -53,7 +54,20 @@ namespace Lab1.Controllers
             {
                 db.Rooms.Add(rooms);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                HttpStatusCode code = SendToAPI(rooms);
+                switch (code)
+                {
+                    case HttpStatusCode.NoContent:
+                        {
+                            return RedirectToAction("Index");
+                        }
+                    default:
+                        {
+                            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                        }
+                }
+
             }
 
             return View(rooms);
@@ -145,13 +159,62 @@ namespace Lab1.Controllers
                         floor = Convert.ToInt32(RoomsNode["floor"].InnerText),
                         NameRoom = RoomsNode["NameRoom"].InnerText,
                         NumberRoom = Convert.ToInt32(RoomsNode["NumberRoom"].InnerText),
-                        
+
                     };
                     db.Rooms.Add(newRooms);
                 }
             }
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        private XmlElement PackStudentToXml(XmlDocument doc, Rooms rooms)
+        {
+            XmlElement roomsNode = doc.CreateElement("Rooms");
+            XmlElement IdNode = doc.CreateElement("Id");
+            IdNode.InnerText = rooms.ID.ToString();
+            roomsNode.AppendChild(IdNode);
+
+            XmlElement floorNode = doc.CreateElement("floor");
+            floorNode.InnerText = Convert.ToString(rooms.floor);
+            roomsNode.AppendChild(floorNode);
+
+            XmlElement GroupNode = doc.CreateElement("NameRoom");
+            GroupNode.InnerText = rooms.NameRoom;
+            roomsNode.AppendChild(GroupNode);
+
+            XmlElement PhoneNoNode = doc.CreateElement("PhoneNo");
+            PhoneNoNode.InnerText = Convert.ToString(rooms.NumberRoom);
+            roomsNode.AppendChild(PhoneNoNode);
+
+            return roomsNode;
+        }
+
+        private HttpStatusCode SendToAPI(Rooms rooms)
+        {
+            //формируем xml документ
+            XmlDocument doc = new XmlDocument();
+            doc.CreateXmlDeclaration("1.0", "utf-8", "no");
+            XmlElement studentNode = PackStudentToXml(doc, rooms);
+            doc.AppendChild(studentNode);
+            //получаем строку в формате XML
+            string xml = doc.OuterXml;
+            //преобразуем строку в массив байт
+            byte[] byteArray = Encoding.UTF8.GetBytes(xml);
+            //создаем http запрос, указываем метод и тип содержимого
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:5001/Room");
+            request.Method = "POST";
+            request.ContentType = "text/xml; encoding='utf-8'";
+            request.ContentLength = byteArray.Length;
+
+            //в поток (в тело) запроса записываем подготовленный массив байт
+            var reqStream = request.GetRequestStream();
+            reqStream.Write(byteArray, 0, byteArray.Length);
+            reqStream.Close();
+
+            //отправляем запрос и получаем ответ
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            return response.StatusCode;
         }
     }
 }
